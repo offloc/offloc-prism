@@ -11,9 +11,10 @@
 
 namespace Offloc\Router\Infrastructure\Persistence\Doctrine\Service;
 
-use Doctrine\ORM\EntityRepository;
+use Doctrine\Common\Persistence\ObjectRepository;
 use Offloc\Router\Domain\Model\Service\Service;
 use Offloc\Router\Domain\Model\Service\ServiceRepositoryInterface;
+use Offloc\Router\Domain\Model\SessionInterface;
 
 /**
  * Doctrine implementation of the Service Repository
@@ -23,17 +24,24 @@ use Offloc\Router\Domain\Model\Service\ServiceRepositoryInterface;
 class ServiceRepository implements ServiceRepositoryInterface
 {
     /**
-     * @var EntityRepository
+     * @var Session
+     */
+    private $session;
+
+    /**
+     * @var ObjectRepository
      */
     private $serviceRepository;
 
     /**
      * Constructor
      *
-     * @param EntityRepository $serviceRepository Service repository
+     * @param SessionInterface $session           Session
+     * @param ObjectRepository $serviceRepository Service repository
      */
-    public function __construct(EntityRepository $serviceRepository)
+    public function __construct(SessionInterface $session, ObjectRepository $serviceRepository)
     {
+        $this->session = $session;
         $this->serviceRepository = $serviceRepository;
     }
 
@@ -66,7 +74,7 @@ class ServiceRepository implements ServiceRepositoryInterface
      */
     public function store(Service $service)
     {
-        $this->serviceRepository->persist($service);
+        $this->session->persist($service);
     }
 
     /**
@@ -74,6 +82,6 @@ class ServiceRepository implements ServiceRepositoryInterface
      */
     public function remove(Service $service)
     {
-        $this->serviceRepository->remove($service);
+        $this->session->remove($service);
     }
 }

@@ -11,7 +11,7 @@
 
 namespace Offloc\Router\Domain\Model\Service;
 
-use Offloc\Router\Domain\Service\KeyGeneratorServiceInterface;
+use Offloc\Router\Domain\Service\IdentityGeneratorServiceInterface;
 use Offloc\Router\Domain\Service\SecretGeneratorServiceInterface;
 
 /**
@@ -22,12 +22,22 @@ use Offloc\Router\Domain\Service\SecretGeneratorServiceInterface;
 class ServiceFactory
 {
     /**
-     * Constructor
-     * 
-     * @param KeyGeneratorServiceInterface    $keyGenerator    Key generator service
-     * @param SecretGeneratorServiceInterface $secretGenerator Secret generator service
+     * @var IdentityGeneratorServiceInterface
      */
-    public function __construct(KeyGeneratorServiceInterface $keyGenerator, SecretGeneratorServiceInterface $secretGenerator)
+    private $keyGenerator;
+
+    /**
+     * @var SecretGeneratorServiceInterface
+     */
+    private $secretGenerator;
+
+    /**
+     * Constructor
+     *
+     * @param IdentityGeneratorServiceInterface $keyGenerator    Key generator service
+     * @param SecretGeneratorServiceInterface   $secretGenerator Secret generator service
+     */
+    public function __construct(IdentityGeneratorServiceInterface $keyGenerator, SecretGeneratorServiceInterface $secretGenerator)
     {
         $this->keyGenerator = $keyGenerator;
         $this->secretGenerator = $secretGenerator;
@@ -35,18 +45,18 @@ class ServiceFactory
 
     /**
      * Create service
-     * 
+     *
      * @param string $name   Name
      * @param string $url    URL
      * @param bool   $active Active?
-     * 
+     *
      * @return Service
      */
     public function create($name, $url, $active = true)
     {
-        $key = $this->keyGenerator->generateKey();
+        $key = $this->keyGenerator->generateIdentity();
         $secret = $this->secretGenerator->generateSecret();
-        
+
         return new Service($key, $name, $url, $secret, $active);
     }
 }

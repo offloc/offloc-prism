@@ -15,12 +15,25 @@ use Offloc\Router\Domain\Model\Service\Service;
 use Offloc\Router\Infrastructure\Persistence\Doctrine\Service\ServiceRepository;
 
 /**
- * Defines the Service factory test
+ * Defines the Service repository test
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
 class ServiceRepositoryTest extends \PHPUnit_Framework_TestCase
 {
+    protected function getMockSession()
+    {
+        return $this->getMock('Offloc\Router\Domain\Model\SessionInterface');
+    }
+
+    protected function getMockServiceObjectRepository()
+    {
+        return $this
+            ->getMockBuilder('Doctrine\Common\Persistence\ObjectRepository')
+            ->disableOriginalConstructor()
+            ->getMock();
+    }
+
     protected function getTestService($fudge = '')
     {
         if (strlen($fudge) > 0) {
@@ -36,17 +49,17 @@ class ServiceRepositoryTest extends \PHPUnit_Framework_TestCase
     public function testFind()
     {
         $testService = $this->getTestService();
-        $entityRepository = $this
-            ->getMockBuilder('Doctrine\ORM\EntityRepository')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $entityRepository
+
+        $session = $this->getMockSession();
+        $serviceObjectRepository = $this->getMockServiceObjectRepository();
+
+        $serviceObjectRepository
             ->expects($this->once())
             ->method('find')
             ->with($this->equalTo('some key'))
             ->will($this->returnValue($testService));
 
-        $serviceRepository = new ServiceRepository($entityRepository);
+        $serviceRepository = new ServiceRepository($session, $serviceObjectRepository);
 
         $service = $serviceRepository->find('some key');
 
@@ -60,16 +73,16 @@ class ServiceRepositoryTest extends \PHPUnit_Framework_TestCase
     {
         $testService000 = $this->getTestService('000');
         $testService001 = $this->getTestService('001');
-        $entityRepository = $this
-            ->getMockBuilder('Doctrine\ORM\EntityRepository')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $entityRepository
+
+        $session = $this->getMockSession();
+        $serviceObjectRepository = $this->getMockServiceObjectRepository();
+
+        $serviceObjectRepository
             ->expects($this->once())
             ->method('findAll')
             ->will($this->returnValue(array($testService000, $testService001)));
 
-        $serviceRepository = new ServiceRepository($entityRepository);
+        $serviceRepository = new ServiceRepository($session, $serviceObjectRepository);
 
         $services = $serviceRepository->findAll();
 
@@ -83,17 +96,17 @@ class ServiceRepositoryTest extends \PHPUnit_Framework_TestCase
     public function testFindByName()
     {
         $testService = $this->getTestService();
-        $entityRepository = $this
-            ->getMockBuilder('Doctrine\ORM\EntityRepository')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $entityRepository
+
+        $session = $this->getMockSession();
+        $serviceObjectRepository = $this->getMockServiceObjectRepository();
+
+        $serviceObjectRepository
             ->expects($this->once())
             ->method('findBy')
             ->with($this->equalTo(array('name' => 'some service')))
             ->will($this->returnValue(array($testService)));
 
-        $serviceRepository = new ServiceRepository($entityRepository);
+        $serviceRepository = new ServiceRepository($session, $serviceObjectRepository);
 
         $services = $serviceRepository->findByName('some service');
 
@@ -105,23 +118,19 @@ class ServiceRepositoryTest extends \PHPUnit_Framework_TestCase
      */
     public function testStore()
     {
-        return;
-
         $testService = $this->getTestService();
-        $entityRepository = $this
-            ->getMockBuilder('Doctrine\ORM\EntityRepository')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $entityRepository
+
+        $session = $this->getMockSession();
+        $serviceObjectRepository = $this->getMockServiceObjectRepository();
+
+        $session
             ->expects($this->once())
             ->method('persist')
             ->with($this->equalTo($testService));
 
-        $serviceRepository = new ServiceRepository($entityRepository);
+        $serviceRepository = new ServiceRepository($session, $serviceObjectRepository);
 
         $serviceRepository->store($testService);
-
-        $this->markTestIncomplete("Cannot seem to mock EntityManager w/ persist method");
     }
 
     /**
@@ -129,22 +138,18 @@ class ServiceRepositoryTest extends \PHPUnit_Framework_TestCase
      */
     public function testRemove()
     {
-        return;
-
         $testService = $this->getTestService();
-        $entityRepository = $this
-            ->getMockBuilder('Doctrine\ORM\EntityRepository')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $entityRepository
+
+        $session = $this->getMockSession();
+        $serviceObjectRepository = $this->getMockServiceObjectRepository();
+
+        $session
             ->expects($this->once())
             ->method('remove')
             ->with($this->equalTo($testService));
 
-        $serviceRepository = new ServiceRepository($entityRepository);
+        $serviceRepository = new ServiceRepository($session, $serviceObjectRepository);
 
         $serviceRepository->remove($testService);
-
-        $this->markTestIncomplete("Cannot seem to mock EntityManager w/ remove method");
     }
 }

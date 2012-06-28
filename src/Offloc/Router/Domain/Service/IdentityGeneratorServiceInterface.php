@@ -12,16 +12,18 @@
 namespace Offloc\Router\Domain\Service;
 
 /**
- * Defines the Key Generator service interface
+ * Defines the Identity Generator service interface
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-interface KeyGeneratorServiceInterface
+interface IdentityGeneratorServiceInterface
 {
     /**
      * Generate key
-     * 
+     *
+     * @param string $suggestion Requested identity
+     *
      * @return string
      */
-    public function generateKey();
+    public function generateIdentity($suggestion = null);
 }

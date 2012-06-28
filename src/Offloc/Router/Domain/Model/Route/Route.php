@@ -12,7 +12,6 @@
 namespace Offloc\Router\Domain\Model\Route;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Offloc\Router\Domain\Model\Service\Service;
 
 /**
@@ -58,13 +57,19 @@ class Route
      * @param string  $name    Name
      * @param array   $headers Headers
      */
-    public function __construct(Service $service, $id, $target, $name = null, Collection $headers = null)
+    public function __construct(Service $service, $id, $target, $name = null, array $headers = array())
     {
         $this->service = $service;
         $this->id = $id;
         $this->target = $target;
         $this->name = $name;
-        $this->headers = null !== $headers ? $headers : new ArrayCollection;
+        $this->headers = new ArrayCollection;
+
+        if (null !== $headers) {
+            foreach ($headers as $key => $value) {
+                $this->setHeader($key, $value);
+            }
+        }
     }
 
     /**

@@ -22,10 +22,10 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
 {
     protected function getServiceFactory()
     {
-        $keyGenerator = $this->getMock('Offloc\Router\Domain\Service\KeyGeneratorServiceInterface');
+        $keyGenerator = $this->getMock('Offloc\Router\Domain\Service\IdentityGeneratorServiceInterface');
         $keyGenerator
             ->expects($this->once())
-            ->method('generateKey')
+            ->method('generateIdentity')
             ->will($this->returnValue('some key'));
 
         $secretGenerator = $this->getMock('Offloc\Router\Domain\Service\SecretGeneratorServiceInterface');
