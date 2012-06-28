@@ -11,6 +11,8 @@
 
 namespace Offloc\Router\Domain\Model\Route;
 
+use Offloc\Router\Domain\Model\Service\Service;
+
 /**
  * Defines the Route repository
  *
@@ -18,4 +20,35 @@ namespace Offloc\Router\Domain\Model\Route;
  */
 interface RouteRepositoryInterface
 {
+    /**
+     * Find
+     *
+     * @param string $id ID
+     *
+     * @return Route
+     */
+    public function find($id);
+
+    /**
+     * Find all (by service)
+     *
+     * @param Service $service Service
+     *
+     * @return array
+     */
+    public function findByService(Service $service);
+
+    /**
+     * Store
+     *
+     * @param Route $route Route
+     */
+    public function store(Route $route);
+
+    /**
+     * Remove
+     *
+     * @param Route $route Route
+     */
+    public function remove(Route $route);
 }

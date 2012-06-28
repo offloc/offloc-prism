@@ -11,7 +11,10 @@
 
 namespace Offloc\Router\Infrastructure\Persistence\Doctrine\Route;
 
+use Doctrine\ORM\EntityRepository;
+use Offloc\Router\Domain\Model\Route\Route;
 use Offloc\Router\Domain\Model\Route\RouteRepositoryInterface;
+use Offloc\Router\Domain\Model\Service\Service;
 
 /**
  * Doctrine implementation of the Route Repository
@@ -20,4 +23,50 @@ use Offloc\Router\Domain\Model\Route\RouteRepositoryInterface;
  */
 class RouteRepository implements RouteRepositoryInterface
 {
+    /**
+     * @var EntityRepository
+     */
+    private $routeRepository;
+
+    /**
+     * Constructor
+     *
+     * @param EntityRepository $routeRepository Route repository
+     */
+    public function __construct(EntityRepository $routeRepository)
+    {
+        $this->routeRepository = $routeRepository;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function find($id)
+    {
+        return $this->routeRepository->find($id);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findByService(Service $service)
+    {
+        return $this->routeRepository->findBy(array('service' => $service));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function store(Route $route)
+    {
+        $this->routeRepository->persist($route);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function remove(Route $route)
+    {
+        $this->routeRepository->remove($route);
+    }
 }

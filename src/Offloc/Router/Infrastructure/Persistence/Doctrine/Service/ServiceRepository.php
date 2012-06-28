@@ -29,7 +29,7 @@ class ServiceRepository implements ServiceRepositoryInterface
 
     /**
      * Constructor
-     * 
+     *
      * @param EntityRepository $serviceRepository Service repository
      */
     public function __construct(EntityRepository $serviceRepository)

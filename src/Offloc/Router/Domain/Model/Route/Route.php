@@ -95,7 +95,7 @@ class Route
 
     /**
      * Name
-     * 
+     *
      * @return string
      */
     public function name()
@@ -105,7 +105,7 @@ class Route
 
     /**
      * Set name
-     * 
+     *
      * @param string $name
      *
      * @return Route
@@ -119,7 +119,7 @@ class Route
 
     /**
      * Get headers
-     * 
+     *
      * @return array
      */
     public function headers()
@@ -135,10 +135,10 @@ class Route
 
     /**
      * Set header
-     * 
+     *
      * @param string $key   Header
      * @param string $value Value
-     * 
+     *
      * @return Route
      */
     public function setHeader($key, $value)
@@ -154,9 +154,9 @@ class Route
 
     /**
      * Get header
-     * 
+     *
      * @param string $key Header
-     * 
+     *
      * @return string
      */
     public function getHeader($key)
@@ -166,9 +166,9 @@ class Route
 
     /**
      * Unset header
-     * 
+     *
      * @param string $key Header
-     * 
+     *
      * @return Route
      */
     public function unsetHeader($key)

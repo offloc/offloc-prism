@@ -6,7 +6,9 @@
 
     <entity name="Offloc\Router\Domain\Model\Route\Route" table="route">
 
-        <many-to-one field="service" target-entity="Offloc\Router\Domain\Model\Service\Service" />
+        <many-to-one field="service" target-entity="Offloc\Router\Domain\Model\Service\Service">
+            <join-column name="serviceKey" referenced-column-name="key" />
+        </many-to-one>
 
         <id name="id" type="string" column="id" />
 
