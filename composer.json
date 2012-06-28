@@ -14,11 +14,19 @@
     ],
     "require": {
         "php": ">=5.3.2",
+        "doctrine/common": "2.2.*"
+    },
+    "require-dev": {
         "dflydev/identity-generator": "1.*",
-        "dflydev/identity-generator-dbal": "1.*",
-        "dflydev/base32-crockford": "1.*",
         "doctrine/orm": "2.2.*",
         "lootils/uuid": "1.*"
+    },
+    "suggest": {
+        "dflydev/base32-crockford": "Solid candidate for dflydev/identity-generator generators",
+        "dflydev/identity-generator": "Required to use dflydev/identity-generator based identity generators",
+        "dflydev/identity-generator-dbal": "Solid candidate for dflydev/identity-generator data store implementation",
+        "doctrine/orm": "Required for Doctrine based persistence",
+        "lootils/uuid": "Solid candidate for UUID secret generator"
     },
     "autoload": {
         "psr-0": {
