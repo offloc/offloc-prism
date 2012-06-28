@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" bootstrap="tests/bootstrap.php">
+    <testsuites>
+        <testsuite name="Offloc Router Core Test Suite">
+            <directory>./tests/Offloc/Tests/Router</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>./src/Offloc/Router/</directory>
+        </whitelist>
+    </filter>
+</phpunit>

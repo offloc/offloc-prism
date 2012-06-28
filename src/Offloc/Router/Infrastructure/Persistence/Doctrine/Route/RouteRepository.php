@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Offloc\Router\Infrastructure\Persistence\Doctrine;
+namespace Offloc\Router\Infrastructure\Persistence\Doctrine\Route;
 
 use Offloc\Router\Domain\Model\Route\RouteRepositoryInterface;
 

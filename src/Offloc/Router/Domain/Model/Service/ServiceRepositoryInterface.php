@@ -18,4 +18,42 @@ namespace Offloc\Router\Domain\Model\Service;
  */
 interface ServiceRepositoryInterface
 {
+    /**
+     * Find
+     * 
+     * @param string $key Key
+     * 
+     * @return Service
+     */
+    public function find($key);
+
+    /**
+     * Find all
+     * 
+     * @return array
+     */
+    public function findAll();
+
+    /**
+     * Find all (by name)
+     * 
+     * @param string $name Name
+     * 
+     * @return array
+     */
+    public function findByName($name);
+
+    /**
+     * Store
+     * 
+     * @param Service $service Service
+     */
+    public function store(Service $service);
+
+    /**
+     * Remove
+     * 
+     * @param Service $service Service
+     */
+    public function remove(Service $service);
 }

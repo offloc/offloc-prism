@@ -23,6 +23,11 @@ use Offloc\Router\Domain\Model\Service\Service;
 class Route
 {
     /**
+     * @var Service
+     */
+    private $service;
+
+    /**
      * @var mixed
      */
     private $id;
@@ -40,14 +45,9 @@ class Route
     private $name;
 
     /**
-     * @var ArrayCollection
+     * @var Collection
      */
     private $headers;
-
-    /**
-     * @var Service
-     */
-    private $service;
 
     /**
      * Constructor
@@ -94,6 +94,8 @@ class Route
     }
 
     /**
+     * Name
+     * 
      * @return string
      */
     public function name()
@@ -102,6 +104,8 @@ class Route
     }
 
     /**
+     * Set name
+     * 
      * @param string $name
      *
      * @return Route
@@ -114,10 +118,63 @@ class Route
     }
 
     /**
-     * @return Collection
+     * Get headers
+     * 
+     * @return array
      */
     public function headers()
     {
-        return $this->headers;
+        $headers = array();
+
+        foreach ($this->headers as $key => $header) {
+            $headers[$key] = $header->value();
+        }
+
+        return $headers;
+    }
+
+    /**
+     * Set header
+     * 
+     * @param string $key   Header
+     * @param string $value Value
+     * 
+     * @return Route
+     */
+    public function setHeader($key, $value)
+    {
+        if ($this->headers->contains($key)) {
+            $this->headers->get($key)->setValue($value);
+        } else {
+            $this->headers->set($key, new Header($this, $key, $value));
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get header
+     * 
+     * @param string $key Header
+     * 
+     * @return string
+     */
+    public function getHeader($key)
+    {
+        return $this->headers->get($key);
+    }
+
+    /**
+     * Unset header
+     * 
+     * @param string $key Header
+     * 
+     * @return Route
+     */
+    public function unsetHeader($key)
+    {
+        $this->headers->remove($key);
+
+        return $this;
     }
 }

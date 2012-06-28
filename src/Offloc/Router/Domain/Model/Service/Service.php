@@ -58,7 +58,7 @@ class Service
         $this->name = $name;
         $this->url = $url;
         $this->secret = $secret;
-        $this->active = true;
+        $this->active = $active;
     }
 
     /**
@@ -75,6 +75,14 @@ class Service
     public function name()
     {
         return $this->name;
+    }
+
+    /**
+     * @param string $name Name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
     }
 
     /**

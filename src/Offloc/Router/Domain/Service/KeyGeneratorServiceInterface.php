@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * This file is a part of offloc/router-core.
  *
  * (c) Offloc Incorporated
@@ -9,15 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Offloc\Router\Infrastructure\Persistence\Doctrine;
-
-use Offloc\Router\Domain\Model\Service\ServiceRepositoryInterface;
+namespace Offloc\Router\Domain\Service;
 
 /**
- * Doctrine implementation of the Service Repository
+ * Defines the Key Generator service interface
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-class ServiceRepository implements ServiceRepositoryInterface
+interface KeyGeneratorServiceInterface
 {
+    /**
+     * Generate key
+     * 
+     * @return string
+     */
+    public function generateKey();
 }
