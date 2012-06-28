@@ -4,7 +4,7 @@
       xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
 
-    <entity name="Offloc\Router\Domain\Model\Route\Header" table="route">
+    <entity name="Offloc\Router\Domain\Model\Route\Header" table="header">
 
         <id name="route" association-key="true" />
         <id name="key" type="string" />

@@ -161,7 +161,11 @@ class Route
      */
     public function getHeader($key)
     {
-        return $this->headers->get($key);
+        if (null !== $header = $this->headers->get($key)) {
+            return $header->value();
+        }
+
+        return null;
     }
 
     /**
@@ -173,7 +177,8 @@ class Route
      */
     public function unsetHeader($key)
     {
-        $this->headers->remove($key);
+        $header = $this->headers->get($key);
+        $this->headers->removeElement($header);
 
         return $this;
     }

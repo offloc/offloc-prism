@@ -15,7 +15,11 @@
         <field name="target" type="string" />
         <field name="name" type="string" />
 
-        <one-to-many field="headers" target-entity="Header" mapped-by="route" index-by="key" />
+        <one-to-many field="headers" target-entity="Header" mapped-by="route" index-by="key" orphan-removal="true">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </one-to-many>
 
     </entity>
 
