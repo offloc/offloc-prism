@@ -38,6 +38,21 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test creating service (should be active, default)
+     */
+    public function testCreateActiveDefault()
+    {
+        $serviceFactory = $this->getServiceFactory();
+        $service = $serviceFactory->create('service name', 'http://example.com');
+
+        $this->assertEquals('some key', $service->key());
+        $this->assertEquals('some secret', $service->secret());
+        $this->assertEquals('service name', $service->name());
+        $this->assertEquals('http://example.com', $service->url());
+        $this->assertTrue($service->active());
+    }
+
+    /**
      * Test creating service (should be active, explicit)
      */
     public function testCreateActiveExplicit()
