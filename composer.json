@@ -4,7 +4,7 @@
     "description": "Provides the core domain model for the Offloc router",
     "homepage": "https://github.com/offloc/offloc-core",
     "keywords": ["offloc", "router", "short", "url"],
-    "license": "New BSD License",
+    "license": "MIT",
     "authors": [
         {
             "name": "Offloc Incorporated",
