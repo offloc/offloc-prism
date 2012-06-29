@@ -22,11 +22,11 @@
         "lootils/uuid": "1.*"
     },
     "suggest": {
-        "dflydev/base32-crockford": "Solid candidate for dflydev/identity-generator generators",
+        "dflydev/base32-crockford": "Required for base32 crockforward based dflydev/identity-generator generator",
         "dflydev/identity-generator": "Required to use dflydev/identity-generator based identity generators",
         "dflydev/identity-generator-dbal": "Solid candidate for dflydev/identity-generator data store implementation",
         "doctrine/orm": "Required for Doctrine based persistence",
-        "lootils/uuid": "Solid candidate for UUID secret generator"
+        "lootils/uuid": "Required for UUID secret generator"
     },
     "autoload": {
         "psr-0": {
