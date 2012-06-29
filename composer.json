@@ -2,7 +2,7 @@
     "name": "offloc/router-core",
     "type": "library",
     "description": "Provides the core domain model for the Offloc router",
-    "homepage": "https://github.com/offloc/offloc-core",
+    "homepage": "https://github.com/offloc/offloc-router-core",
     "keywords": ["offloc", "router", "short", "url"],
     "license": "MIT",
     "authors": [
