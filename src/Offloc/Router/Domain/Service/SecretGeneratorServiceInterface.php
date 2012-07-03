@@ -20,7 +20,7 @@ interface SecretGeneratorServiceInterface
 {
     /**
      * Generate secret
-     * 
+     *
      * @return string
      */
     public function generateSecret();

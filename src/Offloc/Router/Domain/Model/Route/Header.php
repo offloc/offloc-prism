@@ -48,18 +48,8 @@ class Header
     }
 
     /**
-     * Key
-     * 
-     * @return string
-     */
-    public function key()
-    {
-        return $this->key;
-    }
-
-    /**
      * Value
-     * 
+     *
      * @return string
      */
     public function value()
@@ -69,7 +59,7 @@ class Header
 
     /**
      * Set value
-     * 
+     *
      * @param string $value Value
      */
     public function setValue($value)

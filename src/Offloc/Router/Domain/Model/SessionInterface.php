@@ -28,7 +28,7 @@ interface SessionInterface
      *
      * @param object $object The instance to make managed and persistent.
      */
-    function persist($object);
+    public function persist($object);
 
     /**
      * Removes an object instance.
@@ -37,7 +37,7 @@ interface SessionInterface
      *
      * @param object $object The object instance to remove.
      */
-    function remove($object);
+    public function remove($object);
 
     /**
      * Merges the state of a detached object into the persistence context
@@ -46,7 +46,7 @@ interface SessionInterface
      *
      * @param object $object
      */
-    function merge($object);
+    public function merge($object);
 
     /**
      * Clears the Session. All objects that are currently managed
@@ -54,7 +54,7 @@ interface SessionInterface
      *
      * @param string $objectName if given, only objects of this type will get detached
      */
-    function clear($objectName = null);
+    public function clear($objectName = null);
 
     /**
      * Detaches an object from the Session, causing a managed object to
@@ -65,7 +65,7 @@ interface SessionInterface
      *
      * @param object $object The object to detach.
      */
-    function detach($object);
+    public function detach($object);
 
     /**
      * Refreshes the persistent state of an object from the database,
@@ -73,14 +73,14 @@ interface SessionInterface
      *
      * @param object $object The object to refresh.
      */
-    function refresh($object);
+    public function refresh($object);
 
     /**
      * Flushes all changes to objects that have been queued up to now to the database.
      * This effectively synchronizes the in-memory state of managed objects with the
      * database.
      */
-    function flush();
+    public function flush();
 
     /**
      * Executes a function in a transaction.
@@ -96,5 +96,5 @@ interface SessionInterface
      *
      * @return mixed Returns the non-empty value returned from the closure or true instead
      */
-    function transactional($func);
+    public function transactional($func);
 }

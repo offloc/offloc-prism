@@ -44,6 +44,11 @@ class Service
     private $active;
 
     /**
+     * @var bool
+     */
+    private $admin;
+
+    /**
      * Constructor
      *
      * @param string $key    Key
@@ -51,14 +56,16 @@ class Service
      * @param string $url    URL
      * @param string $secret Secret
      * @param bool   $active Active?
+     * @param bool   $admin  Admin?
      */
-    public function __construct($key, $name, $url, $secret = '*', $active = true)
+    public function __construct($key, $name, $url, $secret = '*', $active = true, $admin = false)
     {
         $this->key = $key;
         $this->name = $name;
         $this->url = $url;
         $this->secret = $secret;
         $this->active = $active;
+        $this->admin = $admin;
     }
 
     /**
@@ -147,5 +154,55 @@ class Service
         $this->active = false;
 
         return $this;
+    }
+
+    /**
+     * Admin?
+     *
+     * @return bool
+     */
+    public function admin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * Enable admin privs
+     *
+     * @return Service
+     */
+    public function enableAdmin()
+    {
+        $this->admin = true;
+
+        return $this;
+    }
+
+    /**
+     * Disable admin privs
+     *
+     * @return Service
+     */
+    public function disableAdmin()
+    {
+        $this->admin = false;
+
+        return $this;
+    }
+
+    /**
+     * Can this service admin a target service?
+     *
+     * Used to check if this Service instance can be
+     * considered an administrator for a target Service
+     * instance.
+     *
+     * @param Service $service Target service
+     *
+     * @return bool
+     */
+    public function canAdmin(Service $service)
+    {
+        return $this->admin || $this->key === $service->key();
     }
 }

@@ -139,6 +139,18 @@ class Route
     }
 
     /**
+     * Has header?
+     *
+     * @param string $key Header
+     *
+     * @return bool
+     */
+    public function hasHeader($key)
+    {
+        return $this->headers->containsKey($key);
+    }
+
+    /**
      * Set header
      *
      * @param string $key   Header
@@ -148,7 +160,7 @@ class Route
      */
     public function setHeader($key, $value)
     {
-        if ($this->headers->contains($key)) {
+        if ($this->headers->containsKey($key)) {
             $this->headers->get($key)->setValue($value);
         } else {
             $this->headers->set($key, new Header($this, $key, $value));

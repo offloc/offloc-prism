@@ -22,11 +22,11 @@ class UuidSecretGeneratorService implements SecretGeneratorServiceInterface
 {
     /**
      * Generate secret
-     * 
+     *
      * @return string
      */
     public function generateSecret()
     {
-        return Uuid::createV4();
+        return Uuid::createV4()->getUuid();
     }
 }
