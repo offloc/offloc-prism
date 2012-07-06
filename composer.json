@@ -17,9 +17,9 @@
         "doctrine/common": "2.2.*"
     },
     "require-dev": {
-        "dflydev/identity-generator": "1.*",
+        "dflydev/identity-generator": "1.*@dev",
         "doctrine/orm": "2.2.*",
-        "lootils/uuid": "1.*"
+        "lootils/uuid": "1.*@dev"
     },
     "suggest": {
         "dflydev/base32-crockford": "Required for base32 crockforward based dflydev/identity-generator generator",
