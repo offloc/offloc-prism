@@ -53,7 +53,8 @@ class SessionTest extends \PHPUnit_Framework_TestCase
 
         $session = new Session($entityManager);
 
-        $session->persist($object);
+        $thatSession = $session->persist($object);
+        $this->assertEquals($thatSession, $session);
     }
 
     /**
@@ -71,7 +72,8 @@ class SessionTest extends \PHPUnit_Framework_TestCase
 
         $session = new Session($entityManager);
 
-        $session->remove($object);
+        $thatSession = $session->remove($object);
+        $this->assertEquals($thatSession, $session);
     }
 
     /**
@@ -80,16 +82,19 @@ class SessionTest extends \PHPUnit_Framework_TestCase
     public function testMerge()
     {
         $object = new SessionTestPlaceholder('testing');
+        $mergedObject = new SessionTestPlaceholder('merged testing');
 
         $entityManager = $this->getEntityManager();
         $entityManager
             ->expects($this->once())
             ->method('merge')
-            ->with($this->equalTo($object));
+            ->with($this->equalTo($object))
+            ->will($this->returnValue($mergedObject));
 
         $session = new Session($entityManager);
 
-        $session->merge($object);
+        $thatObject = $session->merge($object);
+        $this->assertEquals($thatObject, $mergedObject);
     }
 
     /**
@@ -104,7 +109,8 @@ class SessionTest extends \PHPUnit_Framework_TestCase
 
         $session = new Session($entityManager);
 
-        $session->clear();
+        $thatSession = $session->clear();
+        $this->assertEquals($thatSession, $session);
     }
 
     /**
@@ -120,7 +126,8 @@ class SessionTest extends \PHPUnit_Framework_TestCase
 
         $session = new Session($entityManager);
 
-        $session->clear('Example\Model\ClassName');
+        $thatSession = $session->clear('Example\Model\ClassName');
+        $this->assertEquals($thatSession, $session);
     }
 
     /**
@@ -138,7 +145,8 @@ class SessionTest extends \PHPUnit_Framework_TestCase
 
         $session = new Session($entityManager);
 
-        $session->detach($object);
+        $thatSession = $session->detach($object);
+        $this->assertEquals($thatSession, $session);
     }
 
     /**
@@ -156,7 +164,8 @@ class SessionTest extends \PHPUnit_Framework_TestCase
 
         $session = new Session($entityManager);
 
-        $session->refresh($object);
+        $thatSession = $session->refresh($object);
+        $this->assertEquals($thatSession, $session);
     }
 
     /**
@@ -171,7 +180,8 @@ class SessionTest extends \PHPUnit_Framework_TestCase
 
         $session = new Session($entityManager);
 
-        $session->flush();
+        $thatSession = $session->flush();
+        $this->assertEquals($thatSession, $session);
     }
 
     /**

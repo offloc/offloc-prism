@@ -41,7 +41,9 @@ class Session implements SessionInterface
      */
     public function persist($object)
     {
-        return $this->entityManager->persist($object);
+        $this->entityManager->persist($object);
+
+        return $this;
     }
 
     /**
@@ -49,7 +51,9 @@ class Session implements SessionInterface
      */
     public function remove($object)
     {
-        return $this->entityManager->remove($object);
+        $this->entityManager->remove($object);
+
+        return $this;
     }
 
     /**
@@ -65,7 +69,9 @@ class Session implements SessionInterface
      */
     public function clear($objectName = null)
     {
-        return $this->entityManager->clear($objectName);
+        $this->entityManager->clear($objectName);
+
+        return $this;
     }
 
     /**
@@ -73,7 +79,9 @@ class Session implements SessionInterface
      */
     public function detach($object)
     {
-        return $this->entityManager->detach($object);
+        $this->entityManager->detach($object);
+
+        return $this;
     }
 
     /**
@@ -81,7 +89,9 @@ class Session implements SessionInterface
      */
     public function refresh($object)
     {
-        return $this->entityManager->refresh($object);
+        $this->entityManager->refresh($object);
+
+        return $this;
     }
 
     /**
@@ -89,7 +99,9 @@ class Session implements SessionInterface
      */
     public function flush()
     {
-        return $this->entityManager->flush();
+        $this->entityManager->flush();
+
+        return $this;
     }
 
     /**

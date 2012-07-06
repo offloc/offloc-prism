@@ -27,6 +27,8 @@ interface SessionInterface
      * this Session as NEW. Do not pass detached objects to the persist operation.
      *
      * @param object $object The instance to make managed and persistent.
+     *
+     * @return SessionInterface
      */
     public function persist($object);
 
@@ -36,6 +38,8 @@ interface SessionInterface
      * A removed object will be removed from the database as a result of the flush operation.
      *
      * @param object $object The object instance to remove.
+     *
+     * @return SessionInterface
      */
     public function remove($object);
 
@@ -45,6 +49,8 @@ interface SessionInterface
      * The object passed to merge will not become associated/managed with this Session.
      *
      * @param object $object
+     *
+     * @return object
      */
     public function merge($object);
 
@@ -53,6 +59,8 @@ interface SessionInterface
      * by this Session become detached.
      *
      * @param string $objectName if given, only objects of this type will get detached
+     *
+     * @return SessionInterface
      */
     public function clear($objectName = null);
 
@@ -64,6 +72,8 @@ interface SessionInterface
      * reference it.
      *
      * @param object $object The object to detach.
+     *
+     * @return SessionInterface
      */
     public function detach($object);
 
@@ -72,6 +82,8 @@ interface SessionInterface
      * overriding any local changes that have not yet been persisted.
      *
      * @param object $object The object to refresh.
+     *
+     * @return SessionInterface
      */
     public function refresh($object);
 
@@ -79,6 +91,8 @@ interface SessionInterface
      * Flushes all changes to objects that have been queued up to now to the database.
      * This effectively synchronizes the in-memory state of managed objects with the
      * database.
+     *
+     * @return SessionInterface
      */
     public function flush();
 
