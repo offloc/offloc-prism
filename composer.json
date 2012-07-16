@@ -22,6 +22,7 @@
         "lootils/uuid": "1.*@dev"
     },
     "replace": {
+        "offloc/router-api-client": "self.version",
         "offloc/router-api-common": "self.version"
     },
     "suggest": {

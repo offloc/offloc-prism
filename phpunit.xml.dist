@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit colors="true" bootstrap="tests/bootstrap.php">
     <testsuites>
-        <testsuite name="Offloc Router Core Test Suite">
+        <testsuite name="Offloc Router Test Suite">
             <directory>./tests/Offloc/Router</directory>
+            <directory>./src/Offloc/Router/Api/Client/Tests</directory>
             <directory>./src/Offloc/Router/Api/Common/Tests</directory>
+            <exclude>./src/Offloc/Router/Api/Client/Tests/bootstrap.php</exclude>
             <exclude>./src/Offloc/Router/Api/Common/Tests/bootstrap.php</exclude>
         </testsuite>
     </testsuites>
@@ -12,6 +14,7 @@
         <whitelist>
             <directory>./src/Offloc/Router/</directory>
             <exclude>
+                <directory>./src/Offloc/Router/Api/Client/Tests</directory>
                 <directory>./src/Offloc/Router/Api/Common/Tests</directory>
             </exclude>
         </whitelist>
