@@ -4,12 +4,16 @@
         <testsuite name="Offloc Router Core Test Suite">
             <directory>./tests/Offloc/Router</directory>
             <directory>./src/Offloc/Router/Api/Common/Tests</directory>
+            <exclude>./src/Offloc/Router/Api/Common/Tests/bootstrap.php</exclude>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
             <directory>./src/Offloc/Router/</directory>
+            <exclude>
+                <directory>./src/Offloc/Router/Api/Common/Tests</directory>
+            </exclude>
         </whitelist>
     </filter>
 </phpunit>
