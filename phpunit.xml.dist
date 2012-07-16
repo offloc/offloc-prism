@@ -3,6 +3,7 @@
     <testsuites>
         <testsuite name="Offloc Router Core Test Suite">
             <directory>./tests/Offloc/Router</directory>
+            <directory>./src/Offloc/Router/Api/Common/Tests</directory>
         </testsuite>
     </testsuites>
 

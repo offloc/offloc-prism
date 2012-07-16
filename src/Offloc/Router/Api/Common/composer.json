@@ -1,0 +1,29 @@
+{
+    "name": "offloc/router-api-common",
+    "type": "library",
+    "description": "Provides common code for the Offloc router API",
+    "homepage": "https://github.com/offloc/offloc-router",
+    "keywords": ["url", "shortener"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Offloc Incorporated",
+            "email": "info@offloc.com",
+            "homepage": "http://offloc.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "Offloc\\Router\\Api\\Common": ""
+        }
+    },
+    "target-dir": "Offloc/Router/Api/Common",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

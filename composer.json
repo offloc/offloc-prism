@@ -21,6 +21,9 @@
         "doctrine/orm": "2.2.*",
         "lootils/uuid": "1.*@dev"
     },
+    "replace": {
+        "offloc/router-api-common": "self.version"
+    },
     "suggest": {
         "dflydev/base32-crockford": "Required for base32 crockforward based dflydev/identity-generator generator",
         "dflydev/identity-generator": "Required to use dflydev/identity-generator based identity generators",
