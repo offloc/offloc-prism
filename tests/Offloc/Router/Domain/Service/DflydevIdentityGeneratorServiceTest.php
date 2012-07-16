@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is a part of offloc/router-core.
+ * This file is a part of offloc/router.
  *
  * (c) Offloc Incorporated
  *
@@ -9,9 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Offloc\Tests\Router\Domain\Service;
-
-use Offloc\Router\Domain\Service\DflydevIdentityGeneratorService;
+namespace Offloc\Router\Domain\Service;
 
 /**
  * Defines the UUID Secret Generator service test

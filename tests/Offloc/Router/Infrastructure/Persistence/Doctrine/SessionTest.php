@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is a part of offloc/router-core.
+ * This file is a part of offloc/router.
  *
  * (c) Offloc Incorporated
  *
@@ -9,9 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Offloc\Tests\Router\Infrastructure\Persistence\Doctrine;
-
-use Offloc\Router\Infrastructure\Persistence\Doctrine\Session;
+namespace Offloc\Router\Infrastructure\Persistence\Doctrine;
 
 /**
  * Defines the Session test

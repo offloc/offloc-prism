@@ -2,7 +2,7 @@
 <phpunit colors="true" bootstrap="tests/bootstrap.php">
     <testsuites>
         <testsuite name="Offloc Router Core Test Suite">
-            <directory>./tests/Offloc/Tests/Router</directory>
+            <directory>./tests/Offloc/Router</directory>
         </testsuite>
     </testsuites>
 

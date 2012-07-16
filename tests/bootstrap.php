@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is a part of offloc/router-core.
+ * This file is a part of offloc/router.
  *
  * (c) Offloc Incorporated
  *
@@ -10,4 +10,4 @@
  */
 
 $loader = require __DIR__.'/../vendor/autoload.php';
-$loader->add('Offloc\\Tests\\Router', 'tests');
+$loader->add('Offloc\\Router', 'tests');

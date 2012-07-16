@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is a part of offloc/router-core.
+ * This file is a part of offloc/router.
  *
  * (c) Offloc Incorporated
  *
@@ -9,9 +9,8 @@
  * file that was distributed with this source code.
  */
 
-namespace Offloc\Tests\Router\Domain\Model\Route;
+namespace Offloc\Router\Domain\Model\Route;
 
-use Offloc\Router\Domain\Model\Route\RouteFactory;
 use Offloc\Router\Domain\Model\Service\Service;
 use Offloc\Router\Domain\Service\IdentityGeneratorServiceInterface;
 

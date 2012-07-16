@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is a part of offloc/router-core.
+ * This file is a part of offloc/router.
  *
  * (c) Offloc Incorporated
  *
@@ -9,10 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Offloc\Tests\Router\Infrastructure\Persistence\Doctrine\Service;
+namespace Offloc\Router\Infrastructure\Persistence\Doctrine\Service;
 
 use Offloc\Router\Domain\Model\Service\Service;
-use Offloc\Router\Infrastructure\Persistence\Doctrine\Service\ServiceRepository;
 
 /**
  * Defines the Service repository test
