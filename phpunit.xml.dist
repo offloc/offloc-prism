@@ -15,7 +15,9 @@
             <directory>./src/Offloc/Router/</directory>
             <exclude>
                 <directory>./src/Offloc/Router/Api/Client/Tests</directory>
+                <directory>./src/Offloc/Router/Api/Client/vendor</directory>
                 <directory>./src/Offloc/Router/Api/Common/Tests</directory>
+                <directory>./src/Offloc/Router/Api/Common/vendor</directory>
             </exclude>
         </whitelist>
     </filter>
