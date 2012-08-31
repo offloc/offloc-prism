@@ -10,4 +10,4 @@
  */
 
 $loader = require __DIR__.'/../vendor/autoload.php';
-$loader->add('Offloc\\Router', 'tests');
+$loader->add('Offloc\\Router', __DIR__);
