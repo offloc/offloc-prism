@@ -14,11 +14,11 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "doctrine/common": "2.2.*"
+        "doctrine/common": ">=2.2.3,<2.4-dev"
     },
     "require-dev": {
         "dflydev/identity-generator": "1.*",
-        "doctrine/orm": "2.2.*",
+        "doctrine/orm": ">=2.2.3,<2.4-dev",
         "lootils/uuid": "1.*@dev"
     },
     "replace": {
