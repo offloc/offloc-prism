@@ -1,4 +1,4 @@
-offloc-router-core
-==================
+offloc-prism
+============
 
-Offloc Router — Core
+Offloc Prism

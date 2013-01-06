@@ -1,0 +1,30 @@
+{
+    "name": "offloc/prism-api-client",
+    "type": "library",
+    "description": "API Client for the Offloc Prism",
+    "homepage": "https://github.com/offloc/offloc-prism",
+    "keywords": ["offloc", "prism", "short", "url", "api", "client"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Offloc Incorporated",
+            "email": "info@offloc.com",
+            "homepage": "http://offloc.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "offloc/prism-api-common": "self.version"
+    },
+    "autoload": {
+        "psr-0": {
+            "Offloc\\Prism\\Api\\Client": ""
+        }
+    },
+    "target-dir": "Offloc/Prism/Api/Client",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

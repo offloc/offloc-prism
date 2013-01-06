@@ -1,8 +1,8 @@
 {
-    "name": "offloc/router",
+    "name": "offloc/prism",
     "type": "library",
-    "description": "Offloc router",
-    "homepage": "https://github.com/offloc/offloc-router",
+    "description": "URL Shortener + Custom Header Injector",
+    "homepage": "https://github.com/offloc/offloc-prism",
     "keywords": ["url", "shortener"],
     "license": "MIT",
     "authors": [
@@ -18,23 +18,22 @@
     },
     "require-dev": {
         "dflydev/identity-generator": "1.*",
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "doctrine/orm": "~2.3",
         "lootils/uuid": "1.*@dev"
     },
     "replace": {
-        "offloc/router-api-client": "self.version",
-        "offloc/router-api-common": "self.version"
+        "offloc/prism-api-client": "self.version",
+        "offloc/prism-api-common": "self.version",
+        "offloc/prism-domain": "self.version",
+        "offloc/prism-infrastructure-persistence-doctrine": "self.version"
     },
     "suggest": {
-        "dflydev/base32-crockford": "Required for base32 crockford based dflydev/identity-generator generator",
-        "dflydev/identity-generator": "Required to use dflydev/identity-generator based identity generators",
-        "dflydev/identity-generator-dbal": "Solid candidate for dflydev/identity-generator data store implementation",
-        "doctrine/orm": "Required for Doctrine based persistence",
-        "lootils/uuid": "Required for UUID secret generator"
+        "doctrine/orm": "~2.3",
+        "lootils/uuid": "1.*"
     },
     "autoload": {
         "psr-0": {
-            "Offloc\\Router": "src"
+            "Offloc\\Prism": "src"
         }
     },
     "extra": {
