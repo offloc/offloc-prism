@@ -28,6 +28,7 @@
         "offloc/prism-infrastructure-persistence-doctrine": "self.version"
     },
     "suggest": {
+        "dflydev/identity-generator": "1.*",
         "doctrine/orm": "~2.3",
         "lootils/uuid": "1.*"
     },
