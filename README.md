@@ -3,6 +3,9 @@ Prism
 
 A URL Shortener and Custom Header Injector.
 
+This project contains the core components of Prism that are independent
+from any front-end implementation.
+
 
 Requirements
 ------------
